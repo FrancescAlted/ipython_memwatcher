@@ -17,9 +17,9 @@ costs 76MB of RAM and took 0.3 seconds to execute::
 
   In [1]: import numpy as np
 
-  In [2]: import ipython_memwatcher
+  In [2]: from ipython_memwatcher import MemWatcher
 
-  In [3]: mw = ipython_memwatcher.MemWatcher()
+  In [3]: mw = MemWatcher()
 
   In [4]: mw.start_watching_memory()
   In [4] used 0.0156 MiB RAM in 2.77s, peaked 0.00 MiB above current, total RAM usage 36.27 MiB
@@ -50,9 +50,9 @@ deallocate memory::
 
   In [1]: import numpy as np
 
-  In [2]: import ipython_memwatcher
+  In [2]: from ipython_memwatcher import MemWatcher
 
-  In [3]: mw = ipython_memwatcher.MemWatcher()
+  In [3]: mw = MemWatcher()
 
   In [4]: mw.start_watching_memory()
   In [4] used 0.0156 MiB RAM in 5.24s, peaked 0.00 MiB above current, total RAM usage 36.20 MiB
