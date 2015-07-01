@@ -94,8 +94,7 @@ understand how RAM is added to the process.
 Requirements
 ============
 
- * `memory_profiler` https://github.com/fabianp/memory_profiler (`pip
-   install memory_profiler`)
+ * `memory_profiler` https://github.com/fabianp/memory_profiler
 
 Tested on
 =========
