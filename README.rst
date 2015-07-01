@@ -28,17 +28,17 @@ costs 76MB of RAM and took 0.3 seconds to execute::
   In [5] used 76.3320 MiB RAM in 0.33s, peaked 0.00 MiB above current, total RAM usage 112.60 MiB
 
 And if we also want to have access to the measurements, just call the
-`measures` property::
+`measurements` property::
 
-  In [6]: w.measures
-  Out[6]: Measures(memory_delta=76.33203125, time_delta=0.32660794258117676, memory_peak=0, memory_usage=112.59765625)
+  In [6]: w.measurements
+  Out[6]: Measurements(memory_delta=76.33203125, time_delta=0.32660794258117676, memory_peak=0, memory_usage=112.59765625)
   In [6] used 0.0664 MiB RAM in 0.10s, peaked 0.00 MiB above current, total RAM usage 112.66 MiB
 
 Works with Python 3.4 and 2.7 with IPython 3.0 (and probably 2.x).
 
 **Note**: This work is strongly based on
 https://github.com/ianozsvald/ipython_memory_usage by Ian Ozsvald and
-adds basically a handier object interface and a `.measures` property
+adds basically a handier object interface and a `.measurements` property
 for getting access to the actualy memory values. In the future
 `ipython_memwatcher` can merged back into `ipython_memory_usage`.
 
@@ -66,8 +66,8 @@ deallocate memory::
   In [7]: b = a * b
   In [7] used 0.0859 MiB RAM in 0.14s, peaked 2.23 MiB above current, total RAM usage 188.93 MiB
 
-  In [8]: w.measures
-  Out[8]: Measures(memory_delta=0.0859375, time_delta=0.1445159912109375, memory_peak=2.234375, memory_usage=188.93359375)
+  In [8]: w.measurements
+  Out[8]: Measurements(memory_delta=0.0859375, time_delta=0.1445159912109375, memory_peak=2.234375, memory_usage=188.93359375)
   In [8] used 0.0703 MiB RAM in 0.10s, peaked 0.00 MiB above current, total RAM usage 189.00 MiB
 
 You can use `stop_watching_memory` to do stop watching and printing

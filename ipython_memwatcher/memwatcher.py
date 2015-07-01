@@ -30,14 +30,14 @@ class MemWatcher(object):
         self.watching_memory = True
         self.ip = get_ipython()
         self.input_cells = self.ip.user_ns['In']
-        self._measures = namedtuple(
-            'Measures',
+        self._measurements = namedtuple(
+            'Measurements',
             ['memory_delta', 'time_delta', 'memory_peak', 'memory_usage'],
             verbose=False)
 
     @property
-    def measures(self):
-        return self._measures(
+    def measurements(self):
+        return self._measurements(
             self.memory_delta, self.time_delta,
             self.peaked_memory_usage, self.previous_call_memory_usage)
 
