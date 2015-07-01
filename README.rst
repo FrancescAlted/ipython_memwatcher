@@ -36,12 +36,11 @@ And if we also want to have access to the measurements, just call the
 
 Works with Python 3.4 and 2.7 with IPython 3.0 (and probably 2.x).
 
-.. Note: This work is strongly based on
-  https://github.com/ianozsvald/ipython_memory_usage by Ian Ozsvald
-  and adds basically a handier object interface and a `.measures`
-  property for getting access to the actualy memory values. In the
-  future `ipython_memwatcher` can merged back into
-  `ipython_memory_usage`.
+**Note**: This work is strongly based on
+https://github.com/ianozsvald/ipython_memory_usage by Ian Ozsvald and
+adds basically a handier object interface and a `.measures` property
+for getting access to the actualy memory values. In the future
+`ipython_memwatcher` can merged back into `ipython_memory_usage`.
 
 Example usage
 =============
