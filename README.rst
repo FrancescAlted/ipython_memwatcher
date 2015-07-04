@@ -100,4 +100,5 @@ Tested on
 =========
 
  * IPython 3.2 with Python 2.7 on Linux 64bit (2015-07)
+ * IPython 2.x (not tested, but SHOULD WORK)
  * IPython 1.2 KNOWN NOT TO WORK
