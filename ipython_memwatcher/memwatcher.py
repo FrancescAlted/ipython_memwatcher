@@ -12,7 +12,7 @@ from collections import namedtuple
 import threading
 from IPython import get_ipython
 
-__version__ = 0.1
+__version__ = 0.2
 
 
 class MemWatcher(object):
@@ -62,20 +62,20 @@ class MemWatcher(object):
     def watch_memory(self):
         if not self.watching_memory:
             return
+        # calculate time delta using global t1 (from the pre-run
+        # event) and current time
+        self.time_delta = time.time() - self.t1
         new_memory_usage = memory_profiler.memory_usage()[0]
         self.memory_delta = new_memory_usage - self.previous_call_memory_usage
         self.keep_watching = False
         self.peaked_memory_usage = max(0, self.peak_memory_usage - new_memory_usage)
-        # calculate time delta using global t1 (from the pre-run
-        # event) and current time
-        self.time_delta = time.time() - self.t1
         num_commands = len(self.input_cells) - 1
         cmd = "In [{}]".format(num_commands)
         # convert the results into a pretty string
-        output_template = ("{cmd} used {memory_delta:0.4f} MiB RAM in "
-                           "{time_delta:0.2f}s, peaked {peaked_memory_usage:0.2f} "
+        output_template = ("{cmd} used {memory_delta:0.3f} MiB RAM in "
+                           "{time_delta:0.3f}s, peaked {peaked_memory_usage:0.3f} "
                            "MiB above current, total RAM usage "
-                           "{memory_usage:0.2f} MiB")
+                           "{memory_usage:0.3f} MiB")
         output = output_template.format(
             time_delta=self.time_delta,
             cmd=cmd,
@@ -106,7 +106,7 @@ class MemWatcher(object):
                 # to carry on running)
                 if n > MAX_ITERATIONS:
                     print("{} SOMETHING WEIRD HAPPENED AND THIS RAN FOR TOO LONG, THIS THREAD IS KILLING ITSELF".format(__file__))
-                    break
+                break
             n += 1
 
 
@@ -114,8 +114,8 @@ class MemWatcher(object):
         """Capture current time before we execute the current command"""
         # start a thread that samples RAM usage until the current
         # command finishes
-        self.t1 = time.time()
         ipython_memory_usage_thread = threading.Thread(
             target=self.during_execution_memory_sampler)
         ipython_memory_usage_thread.daemon = True
         ipython_memory_usage_thread.start()
+        self.t1 = time.time()
