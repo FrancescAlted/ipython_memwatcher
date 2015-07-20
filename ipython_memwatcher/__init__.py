@@ -1,1 +1,1 @@
-from memwatcher import MemWatcher
+from ipython_memwatcher.memwatcher import MemWatcher
