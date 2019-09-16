@@ -33,7 +33,7 @@ class MemWatcher(object):
         self._measurements = namedtuple(
             'Measurements',
             ['memory_delta', 'time_delta', 'memory_peak', 'memory_usage'],
-            verbose=False)
+            )
 
     @property
     def measurements(self):
