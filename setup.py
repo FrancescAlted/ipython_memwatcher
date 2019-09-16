@@ -27,17 +27,17 @@ Topic :: Software Development :: Testing
 from setuptools import setup, find_packages
 setup(
     name="ipython_memwatcher",
-    version="0.2.3",
+    version="0.2.4",
     url="https://github.com/FrancescAlted/ipython_memwatcher",
     author="Francesc Alted, Ian Ozsvald",
-    author_email="faltet AT gmail DOT com",
+    author_email="faltet.gmail.com",
     maintainer="Francesc Alted",
-    maintainer_email="faltet AT gmail DOT com",
+    maintainer_email="faltet.gmail.com",
     description=doclines[0],
     long_description="\n".join(doclines[2:]),
     classifiers=filter(None, classifiers.split("\n")),
     platforms=["Any."],
     packages=['ipython_memwatcher'],
     #package_dir={'ipython_memwatcher': 'ipython_memwatcher'},
-    install_requires=['IPython>=3.1', 'memory_profiler']
+    install_requires=['IPython>=3.1', 'memory_profiler'],
 )
