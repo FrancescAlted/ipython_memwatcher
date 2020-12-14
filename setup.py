@@ -27,7 +27,7 @@ Topic :: Software Development :: Testing
 from setuptools import setup, find_packages
 setup(
     name="ipython_memwatcher",
-    version="0.2.4",
+    version="0.2.5",
     url="https://github.com/FrancescAlted/ipython_memwatcher",
     author="Francesc Alted, Ian Ozsvald",
     author_email="faltet@gmail.com",

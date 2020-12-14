@@ -5,14 +5,13 @@ from __future__ import division  # 1/2 == 0.5, as in Py3
 from __future__ import absolute_import  # avoid hiding global modules with locals
 from __future__ import print_function  # force use of print("hello")
 from __future__ import unicode_literals  # force unadorned strings "" to be unicode without prepending u""
-import os
 import time
 import memory_profiler
 from collections import namedtuple
 import threading
 from IPython import get_ipython
 
-__version__ = 0.2
+__version__ = "0.2.5"
 
 
 class MemWatcher(object):
@@ -43,6 +42,10 @@ class MemWatcher(object):
 
     def start_watching_memory(self):
         """Register memory profiling tools to IPython instance."""
+
+        # Just in case start is called more than once, stop watching. Hence unregister events.
+        self.stop_watching_memory()
+
         self.watching_memory = True
         self.ip.events.register("post_run_cell", self.watch_memory)
         self.ip.events.register("pre_run_cell", self.pre_run_cell)
